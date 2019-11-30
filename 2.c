@@ -14,10 +14,11 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-	int true;
+	int true, false;
 	while(fgets(buf1, SIZE, data))
 	{
 		true = 0;
+		false = 0;
 		result = fopen(argv[2], "r"); 
 		if(!result)
 		{
@@ -25,13 +26,21 @@ int main(int argc, char** argv)
 			return 2;
 		}
 		while(fgets(buf2, SIZE, result))
+		{
+			if(strcmp(buf1, buf2)==0)
+				false = 1;
+			buf2[0] = '+';
 			if(strcmp(buf1, buf2)==0)
 				true = 1;
+		}
 		fclose(result);
-	if(true)
+	if(false)
 		printf("--------- %s", buf1);
+	else if(true)
+		printf("+++++++++ %s", buf1);
 	else
 		printf("%s", buf1);
+
 	}
 	fclose(data);
 
