@@ -8,7 +8,7 @@
 <form name="test" method="post" action="input.php">
 
 <?php
-$fin = file("lab1.txt");
+$fin = file("all_labs.txt");
 //print_r($fin[2][0]);
 $i=0;
 foreach($fin as $str)
@@ -17,7 +17,7 @@ foreach($fin as $str)
 	{
 
 		$str[0] = ' ';
-		$buf['qws'] = $str;
+		$buf['qws'] = trim($str);
 		$i++;
 		$j=0;
 	}
@@ -25,7 +25,7 @@ foreach($fin as $str)
 	if($str[0] == '-' or $str[0] == '+' )
 	{
 		$str[0] = ' ';
-		$buf2[$j] = $str;
+		$buf2[$j] = trim($str);
 		$j++;
 		$buf['ans'] = $buf2;
 	}
