@@ -35,9 +35,9 @@ int main(int argc, char** argv)
 		}
 		fclose(result);
 	if(false)
-		printf("--------- %s", buf1);
+		printf("\"%s\"", buf1);
 	else if(true)
-		printf("+++++++++ %s", buf1);
+		printf("# %s", buf1);
 	else
 		printf("%s", buf1);
 
