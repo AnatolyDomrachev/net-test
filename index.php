@@ -4,16 +4,17 @@
   <title>123</title>
  </head>
  <body>
+
+<form name="test" method="post" action="input.php">
+
 <?php
 $fin = file("lab1.txt");
-echo "<pre>";
 //print_r($fin[2][0]);
 $i=0;
 foreach($fin as $str)
 {
 	if($str[0] == '*')
 	{
-		//if(isset($buf2))
 
 		$str[0] = ' ';
 		$buf['qws'] = $str;
@@ -29,22 +30,29 @@ foreach($fin as $str)
 		$buf['ans'] = $buf2;
 	}
 
+	if(isset($buf))
 	$qwest[$i] = $buf;
 
 }
 
-print_r($qwest);
+//print_r($qwest[1]);
+
+$i = 0;
+foreach($qwest as $qws)
+{
+	echo "<b>".$qws['qws']."</b>";
+	echo "<p>";
+	foreach($qws['ans'] as $answer)
+	{
+		echo "<input type=radio name = a[$i] value = \"$answer\"> $answer <p>";
+	}
+	$i++;
+	echo "<p>";
+}
+
 
 ?>
-<form name="test" method="post" action="input.php">
 
-<input type=radio name = a[0] value = 'qwe asd zxc'> qwe asd zxc<p>
-<input type=radio name = a[0] value = 'qwe asd zxc0'> qwe asd zxc0<p>
-<input type=radio name = a[0] value = 'qwe asd zxc1'> qwe asd zxc1<p>
-
-<input type=radio name = a[1] value = 'qwe asd zxc'> qwe asd zxc<p>
-<input type=radio name = a[1] value = 'qwe asd zxc0'> qwe asd zxc0<p>
-<input type=radio name = a[1] value = 'qwe asd zxc1'> qwe asd zxc1<p>
 
 <input type=submit>
 
