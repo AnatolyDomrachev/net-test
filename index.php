@@ -40,16 +40,24 @@ foreach($fin as $str)
 $i = 0;
 foreach($qwest as $qws)
 {
-	echo "<b>".$qws['qws']."</b>";
+	$num[$i] = $i;
+	$i++;
+}
+
+shuffle($num);
+
+$i = 0;
+foreach($qwest as $qws)
+{
+	echo "<b>".$qwest[$num[$i]]['qws']."</b>";
 	echo "<p>";
-	foreach($qws['ans'] as $answer)
+	foreach($qwest[$num[$i]]['ans'] as $answer)
 	{
 		echo "<input type=radio name = a[$i] value = \"$answer\"> $answer <p>";
 	}
 	$i++;
 	echo "<p>";
 }
-
 
 ?>
 
