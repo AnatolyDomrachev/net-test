@@ -36,36 +36,20 @@ foreach($fin as $str)
 }
 
 //print_r($qwest[1]);
+
 $i = 0;
 foreach($qwest as $qws)
 {
-	$n_qws[$i] = $qws['qws'];
-	$j = 0;
-	foreach($qws['ans'] as $answer)
-	{
-		$n_ans[$i][$j] =  $answer;
-		$j++;
-	}
-	$i++;
-}
-
-echo("<pre>");
-print_r($n_qws);
-print_r($n_ans);
-
-
-$i = 0;
-foreach($n_qws as $qws)
-{
-	echo "<b>".$qws."</b>";
+	echo "<b>".$qws['qws']."</b>";
 	echo "<p>";
-	foreach($n_ans[$i] as $answer)
+	foreach($qws['ans'] as $answer)
 	{
 		echo "<input type=radio name = a[$i] value = \"$answer\"> $answer <p>";
 	}
 	$i++;
 	echo "<p>";
 }
+
 
 ?>
 
